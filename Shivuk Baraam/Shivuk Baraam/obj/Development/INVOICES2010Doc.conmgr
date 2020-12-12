@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="INVOICES2010Doc"
+  DTS:DTSID="{C1C1CCEF-C364-4710-A51E-D32B922DBBF2}"
+  DTS:CreationName="FLATFILE">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:Format="FixedWidth"
+      DTS:LocaleID="1037"
+      DTS:HeaderRowDelimiter="_x000D__x000A_"
+      DTS:RowDelimiter=""
+      DTS:TextQualifier="_x003C_none_x003E_"
+      DTS:CodePage="862"
+      DTS:ConnectionString="C:\Shivuk Baraam\Source Files\INVOICES2010.DOC">
+      <DTS:FlatFileColumns>
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="3"
+          DTS:MaximumWidth="3"
+          DTS:DataType="129"
+          DTS:ObjectName="Column 0"
+          DTS:DTSID="{CEF3E7A7-BA2B-4401-B23A-996BDEB25E1F}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="7"
+          DTS:DataType="4"
+          DTS:ObjectName="DiscountGeneral"
+          DTS:DTSID="{46746EE5-730D-47C6-B12E-6E35CB2A4557}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="7"
+          DTS:DataType="4"
+          DTS:ObjectName="DiscountRow"
+          DTS:DTSID="{3B6FE09A-0DED-4ECF-837B-0092C9FB35DD}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="15"
+          DTS:DataType="4"
+          DTS:ObjectName="Price"
+          DTS:DTSID="{0E7BAF4F-18FA-42B1-8399-9163E30BD26F}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="15"
+          DTS:DataType="4"
+          DTS:ObjectName="Quantity"
+          DTS:DTSID="{3A8EE303-171B-4006-A126-3A7936BC7737}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="4"
+          DTS:DataType="4"
+          DTS:ObjectName="OrderCode"
+          DTS:DTSID="{49931F11-2EA1-44DA-A070-61BFF71E4658}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="10"
+          DTS:MaximumWidth="10"
+          DTS:DataType="129"
+          DTS:ObjectName="AgentCode"
+          DTS:DTSID="{434A01A3-2A85-4EC4-ABA6-D99AC41CA569}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="9"
+          DTS:DataType="7"
+          DTS:ObjectName="OrderDate"
+          DTS:DTSID="{11B83E15-F203-4B82-ADC0-D2A14A95E4EF}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="9"
+          DTS:DataType="3"
+          DTS:ObjectName="CustCode"
+          DTS:DTSID="{1ACC33DC-885F-41EB-87B5-1299B1FF849F}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="13"
+          DTS:DataType="3"
+          DTS:ObjectName="ProdCode"
+          DTS:DTSID="{33956A09-6A17-43D5-97FA-7C1EB2399461}"
+          DTS:CreationName="" />
+        <DTS:FlatFileColumn
+          DTS:ColumnDelimiter=""
+          DTS:ColumnWidth="8"
+          DTS:DataType="2"
+          DTS:ObjectName="InvoiceNumber"
+          DTS:DTSID="{77B1DC13-EC72-4689-A431-1A73AA554D2C}"
+          DTS:CreationName="" />
+      </DTS:FlatFileColumns>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

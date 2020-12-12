@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="9284_7_10\Administrator"
+  DTS:CreatorComputerName="9284_7_10"
+  DTS:CreationDate="12/16/2013 5:58:19 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{E3304A2C-5646-4085-8991-95C70DE93DED}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="MNG_Marge Facts 2 DWH"
+  DTS:DTSID="{FBE5C0FE-EDA3-423A-BC82-8080BC5679F0}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.Baram DWH1]"
+      DTS:ObjectName="LocalHost.Baram DWH1"
+      DTS:DTSID="{58F1CC4D-C721-4A00-B298-9E48982E5881}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=Baram DWH;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.DWH_Shivuk Baraam]"
+      DTS:ObjectName="LocalHost.DWH_Shivuk Baraam"
+      DTS:DTSID="{2562A29C-A44B-475F-A11A-B810E48EEF82}"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=DWH_Shivuk Baraam;Integrated Security=True;Application Name=SSIS-MNG_Marge Facts 2 DWH-{2562A29C-A44B-475F-A11A-B810E48EEF82}LocalHost.DWH_Shivuk Baraam;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Marge Facts STG 2 DWH"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Marge Facts STG 2 DWH"
+      DTS:DTSID="{53F41722-D270-483E-97DF-F4F562263FAE}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2562A29C-A44B-475F-A11A-B810E48EEF82}"
+          SQLTask:SqlStatementSource="MERGE INTO  [DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount] USING [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT]&#xA; ON [DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[InvoiceNumber]= [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[InvoiceNumber]&#xA; WHEN MATCHED THEN&#xA;   UPDATE &#xA;   SET&#xA;    [DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[InvoiceNumber]=[STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[InvoiceNumber],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[CustCode]=[STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[CustCode],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[OrderDate]=[STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[OrderDate],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[GeneralDiscount]=[STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[GeneralDiscount],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_InvoiceDiscount].[TotalRowDiscount]=[STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[TotalRowDiscount]&#xA;&#x9;&#xA;&#x9; &#xA;WHEN NOT MATCHED THEN INSERT ([InvoiceNumber],[CustCode],[OrderDate],[GeneralDiscount],[TotalRowDiscount])  &#xA;VALUES (  &#xA;  [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[InvoiceNumber],&#xA;  [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[CustCode],&#xA;  [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[OrderDate],&#xA;  [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[GeneralDiscount],&#xA;  [STG_Shivuk Baraam].[dbo].[STG_FACT_INVOICE_DICOUNT].[TotalRowDiscount]  );&#xA;&#xA;&#xA;-- -------------------------------------------------------------------------------------------------------------&#xA;-- -------------------------------------------------------------------------------------------------------------&#xA;&#xA;  MERGE INTO  [DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices] USING [STG_Shivuk Baraam].[dbo].[STG_INVOICES]&#xA; ON [DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[InvioceNumber_Year]= [STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvioceNumberNew]&#xA; WHEN MATCHED THEN&#xA;   UPDATE &#xA;   SET&#xA;    [DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[InvoiceNumber]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of InvoiceNumber_clean STR],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[InvioceNumber_Year]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvioceNumberNew],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[ProdCode]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of ProductCode_clean STR],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[CustCode]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of CustomerCode_clean STR],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[InvoiceDate]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvoiceDate_clean],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[AgentCode]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of AgentCode_clean],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[OrderCode]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of OrderCode_clean],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[Quantity]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Quantity],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[Price]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[price],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[RowDiscount]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[RowDiscount],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[GeneralDiscount]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[GeneralDiscount],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[SalesAmount]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[SalesAmount],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Fact_Invoices].[InvoiceType]=[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvoiceType]&#xA;&#x9;&#x9; &#xA;WHEN NOT MATCHED THEN INSERT ([InvoiceNumber],[InvioceNumber_Year],[ProdCode],[CustCode],[InvoiceDate],&#xA;[AgentCode],[OrderCode],[Quantity],[Price],[RowDiscount],[GeneralDiscount],[SalesAmount],[InvoiceType]&#xA;)  &#xA;VALUES (  &#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of InvoiceNumber_clean STR],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvioceNumberNew],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of ProductCode_clean STR],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of CustomerCode_clean STR],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvoiceDate_clean],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of AgentCode_clean],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Copy of OrderCode_clean],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[Quantity],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[price],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[RowDiscount],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[GeneralDiscount],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[SalesAmount],&#xA;[STG_Shivuk Baraam].[dbo].[STG_INVOICES].[InvoiceType]  );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\POPULATE KEYS TO DWH FACT INVOICE"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="POPULATE KEYS TO DWH FACT INVOICE"
+      DTS:DTSID="{485D932C-F692-43B6-8D1A-9AA96AFDBD04}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2562A29C-A44B-475F-A11A-B810E48EEF82}"
+          SQLTask:SqlStatementSource=" -------------------------------------------------------------------------------------&#xA; -------------------------------------------------------------------------------------&#xA; UPDATE [Baram DWH].[dbo].[DWH_Fact_Invoices]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_Invoices].[Agent_Key]=[Baram DWH].[dbo].[DWH_Dim_Agents].[Agent_Key]&#xA; FROM [Baram DWH].[dbo].[DWH_Dim_Agents] JOIN [Baram DWH].[dbo].[DWH_Fact_Invoices]&#xA; ON [Baram DWH].[dbo].[DWH_Dim_Agents].[AgentCode]=[Baram DWH].[dbo].[DWH_Fact_Invoices].[AgentCode]&#xA; -------------------------------------------------------------------------------------&#xA;&#xA;  UPDATE [Baram DWH].[dbo].[DWH_Fact_Invoices]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_Invoices].[Customer_Key]=[Baram DWH].[dbo].[DWH_Dim_Customers].Customer_Key&#xA; FROM [Baram DWH].[dbo].[DWH_Fact_Invoices] JOIN [Baram DWH].[dbo].[DWH_Dim_Customers]&#xA; ON [Baram DWH].[dbo].[DWH_Fact_Invoices].[CustomerCode]=[Baram DWH].[dbo].[DWH_Dim_Customers].[CustomerCode]&#xA;  -------------------------------------------------------------------------------------&#xA;&#xA;  &#xA;  UPDATE [Baram DWH].[dbo].[DWH_Fact_Invoices]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_Invoices].[DateSK]=[Baram DWH].[dbo].[DWH_Dim_Dates].DateSK&#xA; FROM [Baram DWH].[dbo].[DWH_Fact_Invoices] JOIN [Baram DWH].[dbo].[DWH_Dim_Dates]&#xA; ON [Baram DWH].[dbo].[DWH_Fact_Invoices].InvoiceDate=[Baram DWH].[dbo].[DWH_Dim_Dates].Date&#xA;   -------------------------------------------------------------------------------------&#xA;&#xA;UPDATE [Baram DWH].[dbo].[DWH_Fact_Invoices]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_Invoices].[Product_Key]=[Baram DWH].[dbo].[DWH_Dim_Products].Product_Key&#xA;FROM [Baram DWH].[dbo].[DWH_Fact_Invoices] JOIN [Baram DWH].[dbo].[DWH_Dim_Products]&#xA;ON [Baram DWH].[dbo].[DWH_Fact_Invoices].[ ProductCode]=[Baram DWH].[dbo].[DWH_Dim_Products].ProductCode" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\POPULATE KEYS TO DWH FACT INVOICE DISCOUNT"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="POPULATE KEYS TO DWH FACT INVOICE DISCOUNT"
+      DTS:DTSID="{2B1F4D9C-FE6B-4027-85BC-A4EEE139A172}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{2562A29C-A44B-475F-A11A-B810E48EEF82}"
+          SQLTask:SqlStatementSource="  UPDATE [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount].[Customer_Key]=[Baram DWH].[dbo].[DWH_Dim_Customers].Customer_Key&#xA; FROM [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount] JOIN [Baram DWH].[dbo].[DWH_Dim_Customers]&#xA; ON  [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount].CustomerCode=[Baram DWH].[dbo].[DWH_Dim_Customers].CustomerCode&#xA;&#xA;&#xA;   UPDATE [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount]&#xA;SET [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount].[DateSK]=[Baram DWH].[dbo].[DWH_Dim_Dates].DateSK&#xA; FROM [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount] JOIN [Baram DWH].[dbo].[DWH_Dim_Dates]&#xA; ON [Baram DWH].[dbo].[DWH_Fact_InvoiceDiscount].InvoiceDate=[Baram DWH].[dbo].[DWH_Dim_Dates].Date" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:From="Package\Marge Facts STG 2 DWH"
+      DTS:To="Package\POPULATE KEYS TO DWH FACT INVOICE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:DTSID="{237729CF-9FCF-428E-9732-17E03CA8C93C}"
+      DTS:CreationName="" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:From="Package\POPULATE KEYS TO DWH FACT INVOICE"
+      DTS:To="Package\POPULATE KEYS TO DWH FACT INVOICE DISCOUNT"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:DTSID="{D77E0E5A-F712-4EAC-BAA8-294646B3A30E}"
+      DTS:CreationName="" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="164,42"
+          Id="Package\Marge Facts STG 2 DWH"
+          TopLeft="310,84" />
+        <NodeLayout
+          Size="275,42"
+          Id="Package\POPULATE KEYS TO DWH FACT INVOICE"
+          TopLeft="254,201" />
+        <NodeLayout
+          Size="330,42"
+          Id="Package\POPULATE KEYS TO DWH FACT INVOICE DISCOUNT"
+          TopLeft="230,316" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="391.75,126">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,75"
+              Start="0,0"
+              End="0,67.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,67.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="393.25,243">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,73"
+              Start="0,0"
+              End="0,65.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,65.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

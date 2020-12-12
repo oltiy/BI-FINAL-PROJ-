@@ -1,0 +1,440 @@
+﻿<Cube xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="2da0ccad-37cf-4db1-b4fa-3604f51e0f7e" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>DWH Shivuk Baraam</ID>
+  <Name>DWH Shivuk Baraam</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+      <Value>
+        <dds xmlns="">
+          <diagram fontclsid="{0BE35203-8F91-11CE-9DE3-00AA004BB851}" mouseiconclsid="{0BE35204-8F91-11CE-9DE3-00AA004BB851}" defaultlayout="MSDDS.Rectilinear" defaultlineroute="MSDDS.Rectilinear" version="7" nextobject="24" scale="100" pagebreakanchorx="0" pagebreakanchory="0" pagebreaksizex="0" pagebreaksizey="0" scrollleft="-1919" scrolltop="-235" gridx="150" gridy="150" marginx="5000" marginy="5000" zoom="75" x="18362" y="12859" backcolor="15334399" defaultpersistence="2" PrintPageNumbersMode="3" PrintMarginTop="0" PrintMarginBottom="635" PrintMarginLeft="0" PrintMarginRight="0" marqueeselectionmode="0" mousepointer="0" snaptogrid="0" autotypeannotation="1" showscrollbars="0" viewpagebreaks="0" donotforceconnectorsbehindshapes="1" backpictureclsid="{00000000-0000-0000-0000-000000000000}">
+            <font>
+              <ddsxmlobjectstreamwrapper binary="01000000900144420100065461686f6d61" />
+            </font>
+            <mouseicon>
+              <ddsxmlobjectstreamwrapper binary="6c74000000000000" />
+            </mouseicon>
+          </diagram>
+          <layoutmanager>
+            <ddsxmlobj />
+          </layoutmanager>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Dim_Customers" left="6376" top="495" logicalid="12" controlid="1" masterid="0" hint1="0" hint2="0" width="3678" height="4419" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800005e0e000043110000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Dim_Customers" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Fact_InvoiceDiscount" left="13164" top="6969" logicalid="13" controlid="2" masterid="0" hint1="0" hint2="0" width="3545" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000d90d0000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Fact_InvoiceDiscount" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Dim_Products" left="9302" top="12138" logicalid="14" controlid="3" masterid="0" hint1="0" hint2="0" width="3651" height="3572" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000430e0000f40d0000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Dim_Products" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Fact_Invoices" left="5491" top="6043" logicalid="15" controlid="4" masterid="0" hint1="0" hint2="0" width="5662" height="5000" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="000800001e16000088130000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Fact_Invoices" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Dim_InvoiceType" left="3867" top="12560" logicalid="16" controlid="5" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Dim_InvoiceType" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="DdsShapes.DdsObjectManagedBridge.3" tooltip="DWH_Dim_Agents" left="20" top="8379" logicalid="17" controlid="6" masterid="0" hint1="0" hint2="0" width="3000" height="1879" noresize="0" nomove="0" nodefaultattachpoints="0" autodrag="1" usedefaultiddshape="1" selectable="1" showselectionhandles="1" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobjectstreaminitwrapper binary="00080000b80b000057070000" />
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dbo_DWH_Dim_Agents" vartype="8" />
+              </ddsxmlobj>
+            </layoutobject>
+            <shape groupshapeid="0" groupnode="0" />
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="6166" top="4415" logicalid="18" controlid="7" masterid="0" hint1="0" hint2="0" width="806" height="1928" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[DWH_Fact_Invoices-DWH_Dim_Customers]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="1" destid="4" sourceattachpoint="1" destattachpoint="2" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6565" y="4914" />
+              <point x="6565" y="5490" />
+              <point x="6672" y="5490" />
+              <point x="6672" y="6043" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="10853" top="6706" logicalid="19" controlid="8" masterid="0" hint1="0" hint2="0" width="2611" height="1037" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[DWH_Fact_Invoices-DWH_Fact_InvoiceDiscount]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="2" destid="4" sourceattachpoint="14" destattachpoint="23" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="13164" y="7105" />
+              <point x="12318" y="7105" />
+              <point x="12318" y="7443" />
+              <point x="11153" y="7443" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="8572" top="10743" logicalid="20" controlid="9" masterid="0" hint1="0" hint2="0" width="1030" height="2481" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[DWH_Fact_Invoices-DWH_Dim_Products]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="3" destid="4" sourceattachpoint="16" destattachpoint="11" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="9302" y="12824" />
+              <point x="8872" y="12824" />
+              <point x="8872" y="11043" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="6567" top="10743" logicalid="21" controlid="10" masterid="0" hint1="0" hint2="0" width="1000" height="2606" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[DWH_Fact_Invoices-DWH_Dim_InvoiceType]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="5" destid="4" sourceattachpoint="11" destattachpoint="5" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="6867" y="12949" />
+              <point x="7267" y="12949" />
+              <point x="7267" y="11996" />
+              <point x="7222" y="11996" />
+              <point x="7222" y="11043" />
+            </connector>
+          </ddscontrol>
+          <ddscontrol controlprogid="MSDDS.Polyline" left="2720" top="8243" logicalid="22" controlid="11" masterid="0" hint1="0" hint2="0" width="3071" height="1475" noresize="0" nomove="0" nodefaultattachpoints="1" autodrag="0" usedefaultiddshape="0" selectable="1" showselectionhandles="0" allownudging="1" isannotation="0" dontautolayout="0" groupcollapsed="0" tabstop="1" visible="1" snaptogrid="0">
+            <control>
+              <ddsxmlobj>
+                <polyline endtypedst="6" endtypesrc="3" usercolor="0" linestyle="0" linerender="1" customendtypedstid="0" customendtypesrcid="0" adornsvisible="1" />
+              </ddsxmlobj>
+            </control>
+            <layoutobject>
+              <ddsxmlobj>
+                <property name="LogicalObject" value="dataSet.Relations[DWH_Fact_Invoices-DWH_Dim_Agents]" vartype="8" />
+                <property name="Virtual" value="0" vartype="11" />
+                <property name="VisibleAP" value="0" vartype="3" />
+              </ddsxmlobj>
+            </layoutobject>
+            <connector lineroutestyle="MSDDS.Rectilinear" sourceid="6" destid="4" sourceattachpoint="13" destattachpoint="26" segmenteditmode="0" bendpointeditmode="0" bendpointvisibility="0" relatedid="0" virtual="0">
+              <point x="3020" y="9318" />
+              <point x="4220" y="9318" />
+              <point x="4220" y="8543" />
+              <point x="5491" y="8543" />
+            </connector>
+          </ddscontrol>
+        </dds>
+      </Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>-1919</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>-235</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>20</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>495</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>75</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Dimensions>
+    <Dimension dwd:design-time-name="14ba8ce4-bb8b-48bc-9f33-3f4ab0796773">
+      <ID>DWH Dim Customers</ID>
+      <Name>DWH Dim Customers</Name>
+      <DimensionID>DWH Dim Customers</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="f5e91975-2d0f-43b0-98ac-12bcbca7e423">
+          <AttributeID>Cust Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="92c7b681-0f3d-4760-9ff3-158dbb1722bd">
+          <AttributeID>Area Name</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="c655c802-7eab-41f1-9597-ab0240e19d49">
+      <ID>DWH Dim Agents</ID>
+      <Name>DWH Dim Agents</Name>
+      <DimensionID>DWH Dim Agents</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="3fd38391-c086-4cc6-9734-22aa1497fd84">
+          <AttributeID>Agent Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="197ce86a-7b4a-446c-9d90-4893ba0ecaef">
+          <AttributeID>Agent Name</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="b5567a6e-bcac-419a-9f15-8e73b0616097">
+      <ID>DWH Dim Products</ID>
+      <Name>DWH Dim Products</Name>
+      <DimensionID>DWH Dim Products</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="4c3fae3b-94ad-4b90-a804-a6f3f1974ab2">
+          <AttributeID>Prod Code</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="80faf888-0e5d-4ece-9387-9c3edfebf116">
+          <AttributeID>Category Name</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="06fee01f-d7bd-47b1-894a-d1b97368268a">
+      <ID>DWH Fact Invoice Discount</ID>
+      <Name>DWH Fact Invoice Discount</Name>
+      <DimensionID>DWH Fact Invoice Discount</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="e046001a-6cc0-425d-b1f0-bb3792d5886e">
+          <AttributeID>Cust Code</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+    <Dimension dwd:design-time-name="f1f19209-1cbe-46e3-85c4-495e687251a3">
+      <ID>DWH Dim Invoice Type</ID>
+      <Name>DWH Dim Invoice Type</Name>
+      <DimensionID>DWH Dim Invoice Type</DimensionID>
+      <Attributes>
+        <Attribute dwd:design-time-name="1e9f14c7-5ffa-45b2-8482-89e58acbc61c">
+          <AttributeID>Type Key</AttributeID>
+        </Attribute>
+        <Attribute dwd:design-time-name="e0f6b3dd-a06c-4ba5-9887-31696632d86e">
+          <AttributeID>Type Desc</AttributeID>
+        </Attribute>
+      </Attributes>
+    </Dimension>
+  </Dimensions>
+  <MeasureGroups>
+    <MeasureGroup dwd:design-time-name="241adc5f-c84c-496e-adc7-d661aba441a5">
+      <ID>DWH Fact Invoices</ID>
+      <Name>DWH Fact Invoices</Name>
+      <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+      <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+      <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+      <State>Unprocessed</State>
+      <Measures>
+        <Measure dwd:design-time-name="31e32795-2edd-47c8-bec7-275673a33963">
+          <ID>General Discount</ID>
+          <Name>General Discount</Name>
+          <Source dwd:design-time-name="0eb88e60-0ef6-4f35-a86a-3b5a511f7780">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="92633158-cbac-4f1d-8aeb-42458aafc3b9">
+              <TableID>dbo_DWH_Fact_Invoices</TableID>
+              <ColumnID>GeneralDiscount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="46aa0c19-72d0-4e48-b358-c290cf2a1bef">
+          <ID>Row Discount</ID>
+          <Name>Row Discount</Name>
+          <Source dwd:design-time-name="ea6ef603-4970-4c40-9167-6b142e24a333">
+            <DataType>Double</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="70d251ab-587e-4e2d-930f-618c767b04f8">
+              <TableID>dbo_DWH_Fact_Invoices</TableID>
+              <ColumnID>RowDiscount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+        <Measure dwd:design-time-name="3760be9a-09d7-4e9e-903c-a1a88f53a959">
+          <ID>Sales Amount</ID>
+          <Name>Sales Amount</Name>
+          <Source dwd:design-time-name="3446a24a-ca15-40e2-b17f-3f0cc4476d61">
+            <DataType>Single</DataType>
+            <Source xsi:type="ColumnBinding" dwd:design-time-name="71cc2423-1ab6-4cd4-8662-ec45ba2dd7c7">
+              <TableID>dbo_DWH_Fact_Invoices</TableID>
+              <ColumnID>SalesAmount</ColumnID>
+            </Source>
+          </Source>
+        </Measure>
+      </Measures>
+      <StorageMode>Molap</StorageMode>
+      <ProcessingMode>Regular</ProcessingMode>
+      <Dimensions>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="f9bd5b2d-04c6-4657-84da-772e20628221">
+          <CubeDimensionID>DWH Dim Customers</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="912a92b5-0cfb-458c-854a-aad57aaa7392">
+              <AttributeID>Cust Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="2253334b-ce5b-45c8-855f-c0bf2e45d790">
+                  <DataType>WChar</DataType>
+                  <DataSize>11</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="d85b3b43-a59b-4a63-a0ad-b7121c256fe9">
+                    <TableID>dbo_DWH_Fact_Invoices</TableID>
+                    <ColumnID>CustCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e4600ffb-f92d-44c9-bb04-ac0ca4d8730d">
+          <CubeDimensionID>DWH Dim Invoice Type</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="d9bca3ba-c19a-43a7-bed6-7c97cab252c9">
+              <AttributeID>Type Key</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0118bc20-36e1-416b-8c3a-b57276ef6688">
+                  <DataType>WChar</DataType>
+                  <DataSize>10</DataSize>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="090343d5-3144-4ed7-beab-dae4cdd5c293">
+                    <TableID>dbo_DWH_Fact_Invoices</TableID>
+                    <ColumnID>InvoiceType</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="6da98155-999b-4de4-81a0-714ae20b1920">
+          <CubeDimensionID>DWH Dim Agents</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="29aaf89d-6507-45cc-b9bc-391ec4a21703">
+              <AttributeID>Agent Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="9cbbfca7-988d-4fd1-a5c1-d7384e0b89c1">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="7d65d789-a689-4852-9d2c-07d6b8f6ec3f">
+                    <TableID>dbo_DWH_Fact_Invoices</TableID>
+                    <ColumnID>AgentCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="1c747fe7-926d-4b74-96d9-4f78d9419a59">
+          <CubeDimensionID>DWH Dim Products</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="a406aad4-e276-4c64-88f4-3e6b265bdaf7">
+              <AttributeID>Prod Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="0e3090c1-d3ad-4f29-9f8c-94ad089aaca5">
+                  <DataType>Integer</DataType>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="2d7f252b-c3a0-4ec9-a10e-1e67f66fcafc">
+                    <TableID>dbo_DWH_Fact_Invoices</TableID>
+                    <ColumnID>ProdCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+        <Dimension xsi:type="RegularMeasureGroupDimension" dwd:design-time-name="e19238c2-b57b-4388-aaca-cf43beea0572">
+          <CubeDimensionID>DWH Fact Invoice Discount</CubeDimensionID>
+          <Attributes>
+            <Attribute dwd:design-time-name="9b9d0542-459c-4b17-b553-123c59005480">
+              <AttributeID>Cust Code</AttributeID>
+              <KeyColumns>
+                <KeyColumn dwd:design-time-name="8b6208f7-322c-4262-b9f1-568a639b6ccf">
+                  <DataType>WChar</DataType>
+                  <DataSize>50</DataSize>
+                  <NullProcessing>UnknownMember</NullProcessing>
+                  <Source xsi:type="ColumnBinding" dwd:design-time-name="23cda4ba-1568-45a5-97d8-b06660d1552a">
+                    <TableID>dbo_DWH_Fact_Invoices</TableID>
+                    <ColumnID>CustCode</ColumnID>
+                  </Source>
+                </KeyColumn>
+              </KeyColumns>
+              <Type>Granularity</Type>
+            </Attribute>
+          </Attributes>
+        </Dimension>
+      </Dimensions>
+    </MeasureGroup>
+  </MeasureGroups>
+  <Source dwd:design-time-name="ff7da254-0b90-493d-a2a7-aca13c23c72a">
+    <DataSourceViewID>DWH Shivuk Baraam</DataSourceViewID>
+  </Source>
+</Cube>

@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>CUBES_SHIVUK BARAAM</Database>
+    <Server>localhost</Server>
+    <ConnectionString>DataSource=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>Default</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>x94StYYeNhK+PHv/7AJyld4zz6c=19/01/2014 19:54:1419/01/2014 19:54:14</TimeStamp>
+        <ID>
+          <String>DWH Shivuk Baraam 1</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>mMkj7QW9FVYruDJbGIRdyufbuxI=19/01/2014 20:50:0319/01/2014 20:47:56</TimeStamp>
+        <ID>
+          <String>DWH Shivuk Baraam</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>aokpCvdgvFFL9rN7K/HgUJvq628=19/01/2014 20:55:3119/01/2014 19:36:10</TimeStamp>
+        <ID>
+          <String>DWH Dim Customers</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+QfXOTaIkZ+zsCseVNXuc8hfpJ4=19/01/2014 20:55:3119/01/2014 19:36:30</TimeStamp>
+        <ID>
+          <String>DWH Dim Products</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>+mpTDe4gyZBsmEBKzGPi1wpvFLU=19/01/2014 19:36:4619/01/2014 19:36:46</TimeStamp>
+        <ID>
+          <String>DWH Dim Dates</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>UzibhbYO6i81PMQ0DiEI3SJyosE=19/01/2014 19:37:1719/01/2014 19:37:17</TimeStamp>
+        <ID>
+          <String>DWH Fact Invoice Discount</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>jaNGXzT5OchWmNQ4J3E/53yjqag=19/01/2014 20:55:3119/01/2014 19:37:31</TimeStamp>
+        <ID>
+          <String>DWH Dim Agents</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>S0Wqo+pGLJy3RTFWXfI/JqK13zc=19/01/2014 20:55:3119/01/2014 19:38:34</TimeStamp>
+        <ID>
+          <String>DWH Dim Invoice Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>OC+t51vhh1rLY34eut86Uj/DMec=19/01/2014 20:55:3119/01/2014 19:57:52P/Jt6hnQieHSPUocwdngzkt6C8U=19/01/2014 20:51:4019/01/2014 19:57:52</TimeStamp>
+        <ID>
+          <String>DWH Shivuk Baraam</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>lGLd/yiD+aCL1hxWGgLw58hhaIc=16/01/2014 19:21:5716/01/2014 19:21:57</TimeStamp>
+      <ID>
+        <String>CUBES_SHIVUK BARAAM</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2014-01-19T18:55:41.393333Z</LastDeployed>
+</DeploymentSnapshot>

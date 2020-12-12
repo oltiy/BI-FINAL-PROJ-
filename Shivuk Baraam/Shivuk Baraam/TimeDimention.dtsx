@@ -1,0 +1,75 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="arie-PC\arie"
+  DTS:CreatorComputerName="ARIE-PC"
+  DTS:CreationDate="11/2/2013 3:02:56 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="3"
+  DTS:VersionGUID="{01C2B219-FF1D-41E2-9BC4-60DFABD992ED}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="TimeDimention"
+  DTS:DTSID="{226AA62D-5718-4EB7-98C9-CB3F92E31E3B}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[.]"
+      DTS:ObjectName="."
+      DTS:DTSID="{7FF6FD14-85C0-4D5B-841D-CC97017B17F9}"
+      DTS:CreationName="ADO.NET:SQL">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Integrated Security=SSPI;Connect Timeout=30;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute T-SQL Statement Task"
+      DTS:ExecutableType="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute T-SQL Statement Task; Microsoft Corporation; Microsoft SQL Server v9; © 2004 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute T-SQL Statement Task"
+      DTS:DTSID="{1b5112d1-e1d1-4c85-949d-316f20e0e807}"
+      DTS:Description="Execute T-SQL Statement Task"
+      DTS:CreationName="Microsoft.SqlServer.Management.DatabaseMaintenance.DbMaintenanceTSQLExecuteTask, Microsoft.SqlServer.MaintenancePlanTasks, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{7FF6FD14-85C0-4D5B-841D-CC97017B17F9}"
+          SQLTask:SqlStatementSource="--Make sure you set the Start and End Date below on row 58 and 59&#xA;--Create the tables&#xA;BEGIN TRY&#xA; DROP TABLE [DimDate]&#xA;END TRY&#xA;BEGIN CATCH&#xA; --DO NOTHING&#xA;END CATCH&#xA;CREATE TABLE [dbo].[DimDate](&#xA; --[DateSK] [int] IDENTITY(1,1) NOT NULL--Use this line if you just want an autoincrementing counter AND COMMENT BELOW LINE&#xA; [DateSK] [int] NOT NULL--TO MAKE THE DateSK THE YYYYMMDD FORMAT USE THIS LINE AND COMMENT ABOVE LINE.&#xA; , [Date] [datetime] NOT NULL&#xA; , [Day] [tinyint] NOT NULL&#xA; , [DayOfWeek] [varchar](9) NOT NULL&#xA; , [Month] [tinyint] NOT NULL&#xA; , [MonthName] [varchar](9) NOT NULL&#xA; , [Quarter] [tinyint] NOT NULL&#xA; , [QuarterName] [varchar](6) NOT NULL&#xA; , [Year] [char](4) NOT NULL&#xA; , [StandardDate] [varchar](10) NULL&#xA; , [HolidayText] [nvarchar](255) NULL&#xA; CONSTRAINT [PK_DimDate] PRIMARY KEY CLUSTERED &#xA; (&#xA; [DateSK] ASC&#xA; )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA; ) ON [PRIMARY]&#xA;&#xA;GO&#xA;&#xA;--Populate Date dimension&#xA;&#xA;TRUNCATE TABLE DimDate&#xA;&#xA;--IF YOU ARE USING THE YYYYMMDD format for the primary key then you need to comment out this line.&#xA;--DBCC CHECKIDENT (DimDate, RESEED, 60000) --In case you need to add earlier dates later.&#xA;&#xA;DECLARE @tmpDOW TABLE (DOW INT, Cntr INT)--Table for counting DOW occurance in a month&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(1,0)--Used in the loop below&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(2,0)&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(3,0)&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(4,0)&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(5,0)&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(6,0)&#xA;INSERT INTO @tmpDOW(DOW, Cntr) VALUES(7,0)&#xA;&#xA;DECLARE @StartDate datetime&#xA; , @EndDate datetime&#xA; , @Date datetime&#xA; , @WDofMonth INT&#xA; , @CurrentMonth INT&#xA; -------------------------------------------------------------------------&#xA; -- 2009 2010 INVOICESהפקודה לוקחת את התאריך המינימלי  והמקסימלי מטבלת ה &#xA; select @StartDate=min([db_yos].[dbo].[MRR INVOICE 2009].[OrderDate])&#xA; from [db_yos].[dbo].[MRR INVOICE 2009]&#xA;&#xA; select @EndDate=max([db_yos].[dbo].[MRR INVOICE 2010].[OrderDate])&#xA;, @CurrentMonth = 1&#xA; from [db_yos].[dbo].[MRR INVOICE 2010]&#xA;&#xA;&#xA; print @StartDate&#xA; print @EndDate&#xA; -------------------------------------------------------------------------&#xA;  --Counter used in loop below.&#xA;&#xA;SELECT @Date = @StartDate&#xA;&#xA;WHILE @Date &lt; @EndDate&#xA; BEGIN&#xA; &#xA; IF DATEPART(MONTH,@Date) &lt;&gt; @CurrentMonth &#xA; BEGIN&#xA; SELECT @CurrentMonth = DATEPART(MONTH,@Date)&#xA; UPDATE @tmpDOW SET Cntr = 0&#xA; END&#xA;&#xA; UPDATE @tmpDOW&#xA; SET Cntr = Cntr + 1&#xA; WHERE DOW = DATEPART(DW,@DATE)&#xA;&#xA; SELECT @WDofMonth = Cntr&#xA; FROM @tmpDOW&#xA; WHERE DOW = DATEPART(DW,@DATE) &#xA;&#xA; INSERT INTO DimDate&#xA; (&#xA; [DateSK],--TO MAKE THE DateSK THE YYYYMMDD FORMAT UNCOMMENT THIS LINE... Comment for autoincrementing.&#xA; [Date]&#xA; , [Day]&#xA; , [DayOfWeek]&#xA; , [Month]&#xA; , [MonthName]&#xA; , [Quarter]&#xA; , [QuarterName]&#xA; , [Year]&#xA; , [StandardDate]&#xA; )&#xA; SELECT CONVERT(VARCHAR,@Date,112), --TO MAKE THE DateSK THE YYYYMMDD FORMAT UNCOMMENT THIS LINE COMMENT FOR AUTOINCREMENT&#xA; @Date [Date]&#xA; , DATEPART(DAY,@DATE) [Day]&#xA; &#xA; , CASE DATEPART(DW, @DATE)&#xA; WHEN 1 THEN 'Sunday'&#xA; WHEN 2 THEN 'Monday'&#xA; WHEN 3 THEN 'Tuesday'&#xA; WHEN 4 THEN 'Wednesday'&#xA; WHEN 5 THEN 'Thursday'&#xA; WHEN 6 THEN 'Friday'&#xA; WHEN 7 THEN 'Saturday'&#xA; END AS [DayOfWeek]&#xA; &#xA; , DATEPART(MONTH,@DATE) [Month]--To be converted with leading zero later. &#xA; , DATENAME(MONTH,@DATE) [MonthName]&#xA; , DATEPART(qq,@DATE) [Quarter]--Calendar quarter&#xA; , CASE DATEPART(qq,@DATE) &#xA; WHEN 1 THEN 'First'&#xA; WHEN 2 THEN 'Second'&#xA; WHEN 3 THEN 'Third'&#xA; WHEN 4 THEN 'Fourth'&#xA; END AS [QuarterName]&#xA; ,DATEPART(YEAR,@Date) [Year]&#xA; ,Right('0' + convert(varchar(2),MONTH(@Date)),2) + '/' + Right('0' + convert(varchar(2),DAY(@Date)),2) + '/' + convert(varchar(4),YEAR(@Date))&#xA; &#xA; SELECT @Date = DATEADD(dd,1,@Date)&#xA; END&#xA; ----------------------------------------------------------------------------&#xA; ----------------------------------------------------------------------------&#xA; -- מעדכן את עמודת שמות החגים לפי טבלת חגים ולפי טווחי הזמן&#xA;  update [db_yos].[dbo].[DimDate]&#xA;  set [db_yos].[dbo].[DimDate].[HolidayText]=[db_yos].[dbo].[HOLIDAYS].[תקופה]&#xA;   from  [db_yos].[dbo].[DimDate]     join     [db_yos].[dbo].[HOLIDAYS]&#xA;    on  [db_yos].[dbo].[DimDate].[Date]&gt;=[db_yos].[dbo].[HOLIDAYS].[התחלה ]&#xA;    and [db_yos].[dbo].[DimDate].[Date]&lt;=[db_yos].[dbo].[HOLIDAYS].[סיום]&#xA;  &#xA;&#xA;&#xA;--DimDate indexes---------------------------------------------------------------------------------------------&#xA;CREATE UNIQUE NONCLUSTERED INDEX [IDX_DimDate_Date] ON [dbo].[DimDate] &#xA;(&#xA;[Date] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_Day] ON [dbo].[DimDate] &#xA;(&#xA;[Day] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_DayOfWeek] ON [dbo].[DimDate] &#xA;(&#xA;[DayOfWeek] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_Month] ON [dbo].[DimDate] &#xA;(&#xA;[Month] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_MonthName] ON [dbo].[DimDate] &#xA;(&#xA;[MonthName] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_Quarter] ON [dbo].[DimDate] &#xA;(&#xA;[Quarter] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_QuarterName] ON [dbo].[DimDate] &#xA;(&#xA;[QuarterName] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_DimDate_Year] ON [dbo].[DimDate] &#xA;(&#xA;[Year] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;CREATE NONCLUSTERED INDEX [IDX_dim_Time_HolidayText] ON [dbo].[DimDate] &#xA;(&#xA;[HolidayText] ASC&#xA;)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, SORT_IN_TEMPDB = OFF, IGNORE_DUP_KEY = OFF, DROP_EXISTING = OFF, ONLINE = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, FILLFACTOR = 90) ON [PRIMARY]&#xA;&#xA;PRINT convert(varchar,getdate(),113)--USED FOR CHECKING RUN TIME."
+          SQLTask:ServerVersion="9"
+          SQLTask:ExtendedLogging="True"
+          SQLTask:LocalConnectionForLogging=""
+          SQLTask:TaskName=""
+          SQLTask:IgnoreDatabasesInNotOnlineState="False" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="314,77"
+          Id="Package\Execute T-SQL Statement Task"
+          TopLeft="282,93" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

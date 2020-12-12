@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="RABIN\rabina"
+  DTS:CreatorComputerName="RABIN"
+  DTS:CreationDate="12/19/2013 8:33:47 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="13"
+  DTS:VersionGUID="{A1062158-C5AF-40DF-808D-A547FF37BFCE}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1037"
+  DTS:ObjectName="DWH"
+  DTS:DTSID="{DD921DDC-A674-44A6-8234-2974AAD4CE87}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.STG_Shivuk Baraam1]"
+      DTS:ObjectName="LocalHost.STG_Shivuk Baraam1"
+      DTS:DTSID="{F6FA602D-C8A1-40F3-9E72-D1105DCBC3C8}"
+      DTS:CreationName="OLEDB">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=STG_Shivuk Baraam;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.STG_Shivuk Baraam1 1]"
+      DTS:ObjectName="LocalHost.STG_Shivuk Baraam1 1"
+      DTS:DTSID="{42810872-C9D5-417A-AD79-C9281489CCD9}"
+      DTS:CreationName="ADO">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=STG_Shivuk Baraam;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Merge From STG To DWH Agents"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="0"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge From STG To DWH Agents"
+      DTS:DTSID="{74CE9585-E9BD-491A-92C6-4DBD8B1F17D6}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}"
+          SQLTask:SqlStatementSource="MERGE&#xA;INTO              [DWH_Shivuk Baraam].[dbo].[DWH_Dim_Agents] target USING[STG_Shivuk Baraam].[dbo].[STG_Agents] source ON target.[AgentCode] = source.[agent code] WHEN MATCHED THEN&#xA;                             UPDATE       &#xA;                              SET                 target.[AgentCode] = source.[agent code], target.[AgentName] = source.[agent name]  &#xA;WHEN NOT MATCHED THEN INSERT ([AgentCode], [AgentName])&#xA;                              VALUES        (source.[agent code], source.[agent name])&#xA;;&#xA;&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge From STG To DWH Customers"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="2"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge From STG To DWH Customers"
+      DTS:DTSID="{24FCF2F8-B52B-4467-9D80-7F3AB40AE59D}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}"
+          SQLTask:SqlStatementSource="MERGE INTO  [DWH_Shivuk Baraam].[dbo].[DWH_Dim_Customers] target&#xA; USING [STG_Shivuk Baraam].[dbo].[STG_Customers] source&#xA;ON source.[CustCode]= target.[CustCode]&#xA; WHEN MATCHED THEN&#xA;   UPDATE &#xA;   SET&#xA;    &#xA;&#x9;source.[CustCode]=target.[CustCode],&#xA;&#x9;source.[CustName]=target.[CustName],&#xA;&#x9;source.[CustomerTypeCode]=target.[CustomerTypeCode],&#xA;&#x9;source.[CustomerTypeDesc]=target.[CustomerTypeDesc],&#xA;&#x9;source.[CustPayCondition]=target.[CustPayCondition],&#xA;&#x9;source.[AreaCode]=target.[AreaCode],&#xA;&#x9;source.[AreaName]=target.[AreaName],&#xA;&#x9;source.[AgentCode]=target.[AgentCode]&#xA;&#x9;--,&#x9;source.[RI]=target.[RI]&#xA;&#x9; &#xA;WHEN NOT MATCHED THEN INSERT ([CustCode] ,[CustName],[CustomerTypeCode],[CustomerTypeDesc],&#xA;[CustPayCondition],[AreaCode],[AreaName],[AgentCode]/*,[RI]*/)  &#xA;VALUES (  &#xA;target.[CustCode],&#xA;target.[CustName],&#xA;target.[CustomerTypeCode],&#xA;target.[CustomerTypeDesc],&#xA;target.[CustPayCondition],&#xA;target.[AreaCode],&#xA;target.[AreaName],&#xA;target.[AgentCode]&#xA;--,target.[RI]&#xA;);" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Merge From STG To DWH INVOICE_TYPES"
+      DTS:ExecutableType="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+      DTS:ThreadHint="1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2012; © 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Merge From STG To DWH INVOICE_TYPES"
+      DTS:DTSID="{0B177F34-A150-4B6F-A338-11D3A6BDBB0D}"
+      DTS:Description="Execute SQL Task"
+      DTS:CreationName="Microsoft.SqlServer.Dts.Tasks.ExecuteSQLTask.ExecuteSQLTask, Microsoft.SqlServer.SQLTask, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}"
+          SQLTask:SqlStatementSource="  MERGE INTO  [DWH_Shivuk Baraam].[dbo].[DWH_Dim_InvoiceType] USING [STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES]&#xA; ON [DWH_Shivuk Baraam].[dbo].[DWH_Dim_InvoiceType].[TypeKey]= [STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES].[TypeKey]&#xA; WHEN MATCHED THEN&#xA;   UPDATE &#xA;   SET&#xA;    [DWH_Shivuk Baraam].[dbo].[DWH_Dim_InvoiceType].[TypeKey]=[STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES].[TypeKey],&#xA;&#x9;[DWH_Shivuk Baraam].[dbo].[DWH_Dim_InvoiceType].[TypeDesc]=[STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES].[TypeDesc]&#xA;&#x9; &#xA;WHEN NOT MATCHED THEN INSERT ([TypeKey],[TypeDesc])  &#xA;VALUES (  &#xA;  [STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES].[TypeKey],&#xA;  [STG_Shivuk Baraam].[dbo].[STG_INVOICE_TYPES].[TypeDesc]&#xA;    );" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="236,42"
+          Id="Package\Merge From STG To DWH Agents"
+          TopLeft="79,61" />
+        <NodeLayout
+          Size="254,42"
+          Id="Package\Merge From STG To DWH Customers"
+          TopLeft="74,113" />
+        <NodeLayout
+          Size="281,42"
+          Id="Package\Merge From STG To DWH INVOICE_TYPES"
+          TopLeft="73,166" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

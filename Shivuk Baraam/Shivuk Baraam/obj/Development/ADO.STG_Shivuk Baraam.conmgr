@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="ADO STG_Shivuk Baraam"
+  DTS:DTSID="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=.;Initial Catalog=&quot;STG_Shivuk Baraam&quot;;Integrated Security=True;Application Name=&quot;SSIS-Shivuk Baraam-{99E3AE2C-72F6-40D8-898C-DAE4E4974627}LocalHost.STG_Shivuk Baraam&quot;;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="LocalHost.MRR_Shivuk Baraam"
+  DTS:DTSID="{1F9576E6-9B1F-474B-A7DC-37FD9E6FF944}"
+  DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=.;Initial Catalog=MRR_Shivuk Baraam;Integrated Security=True;Application Name=SSIS-Shivuk Baraam-{1F9576E6-9B1F-474B-A7DC-37FD9E6FF944}LocalHost.MRR_Shivuk Baraam;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

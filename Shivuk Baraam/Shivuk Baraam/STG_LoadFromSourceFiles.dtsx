@@ -1,0 +1,2216 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable
+  DTS:refId="Package" xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ExecutableType="SSIS.Package.3"
+  DTS:CreatorName="RABIN\rabina"
+  DTS:CreatorComputerName="RABIN"
+  DTS:CreationDate="12/5/2013 6:33:56 PM"
+  DTS:PackageType="5"
+  DTS:VersionBuild="33"
+  DTS:VersionGUID="{8BCFD110-2B93-4DD9-B881-F6DC9869DED4}"
+  DTS:LastModifiedProductVersion="11.0.2100.60"
+  DTS:LocaleID="1037"
+  DTS:ObjectName="STG_LoadFromSourceFiles"
+  DTS:DTSID="{C9E32AD9-5798-470B-A8FF-A844AD020178}"
+  DTS:CreationName="SSIS.Package.3">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">6</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]"
+      DTS:ObjectName="LocalHost.MRR_Shivuk Baraam"
+      DTS:DTSID="{3937F545-1F44-4B6D-9BC7-FA765E07987F}"
+      DTS:CreationName="ADO.NET:System.Data.SqlClient.SqlConnection, System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectionString="Data Source=.;Initial Catalog=MRR_Shivuk Baraam;Integrated Security=True;Application Name=SSIS-STG_LoadFromSourceFiles-{3937F545-1F44-4B6D-9BC7-FA765E07987F}LocalHost.MRR_Shivuk Baraam;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CF_STG_Agents"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CF_STG_Agents"
+      DTS:DTSID="{0C4BEC59-DFBF-4A2D-92D9-715EB235BC40}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CF_STG_Agents\ADO NET Source"
+              name="ADO NET Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              usesDispositions="true"
+              version="4"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">SELECT [agent code]
+      ,[agent name]
+     
+  FROM [MRR_Shivuk Baraam].[dbo].[MRR_agents]</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">30</property>
+                <property
+                  name="AllowImplicitStringConversion"
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns.">true</property>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Source database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">2</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Agents\ADO NET Source.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent code]"
+                      name="agent code"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent code]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[agent code]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent name]"
+                      name="agent name"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[agent name]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[agent code]"
+                      name="agent code"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[agent name]"
+                      name="agent name"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  name="ADO NET Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[agent code]"
+                      name="agent code"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[agent code]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[agent name]"
+                      name="agent name"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[agent name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Agents\Data Conversion"
+              name="Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              description="Data Conversion"
+              usesDispositions="true"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Agents\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Agents\Data Conversion.Inputs[Data Conversion Input].Columns[agent code]"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent code]"
+                      cachedName="agent code"
+                      cachedDataType="r8" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Output]"
+                  name="Data Conversion Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Agents\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Output].Columns[agent code]"
+                      name="agent code"
+                      lineageId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Output].Columns[agent code]"
+                      length="50"
+                      dataType="str"
+                      codePage="1255"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent code]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Error Output]"
+                  name="Data Conversion Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Agents\Data Conversion.Inputs[Data Conversion Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Agents\STG_Agents"
+              name="STG_Agents"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              usesDispositions="true"
+              version="2"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2">
+              <properties>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">"STG_Agents"</property>
+                <property
+                  name="BatchSize"
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify">0</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify">30</property>
+                <property
+                  name="UseBulkInsertWhenPossible"
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify">true</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Agents\STG_Agents.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADO STG_Shivuk Baraam]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input]"
+                  name="ADO NET Destination Input"
+                  hasSideEffects="true"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].Columns[agent name]"
+                      lineageId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output].Columns[agent name]"
+                      externalMetadataColumnId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].ExternalColumns[agent name]"
+                      cachedName="agent name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].Columns[agent code]"
+                      lineageId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Output].Columns[agent code]"
+                      externalMetadataColumnId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].ExternalColumns[agent code]"
+                      cachedName="agent code"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].ExternalColumns[agent name]"
+                      name="agent name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input].ExternalColumns[agent code]"
+                      name="agent code"
+                      dataType="wstr"
+                      length="50" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Agents\STG_Agents.Outputs[ADO NET Destination Error Output]"
+                  name="ADO NET Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Agents\STG_Agents.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Agents\STG_Agents.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Agents\STG_Agents.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CF_STG_Agents.Paths[ADO NET Source Output]"
+              name="ADO NET Source Output"
+              startId="Package\CF_STG_Agents\ADO NET Source.Outputs[ADO NET Source Output]"
+              endId="Package\CF_STG_Agents\Data Conversion.Inputs[Data Conversion Input]" />
+            <path
+              refId="Package\CF_STG_Agents.Paths[Data Conversion Output]"
+              name="Data Conversion Output"
+              startId="Package\CF_STG_Agents\Data Conversion.Outputs[Data Conversion Output]"
+              endId="Package\CF_STG_Agents\STG_Agents.Inputs[ADO NET Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CF_STG_Customers"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CF_STG_Customers"
+      DTS:DTSID="{bd5eef00-8493-4d4d-9102-70dcea0ab138}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CF_STG_Customers\ADO NET Source"
+              name="ADO NET Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              usesDispositions="true"
+              version="4"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">SELECT cst.CustCode,cst.CustName,cst.CustPayCondition,cst.AgentCode,ma.AreaCode,ma.AreaName,ml.CustomerTypeCode,ml.CustomerTypeDesc
+ FROM  MRR_Customers cst
+ LEFT JOIN  MRR_mipuyezor ma
+ ON cst.AreaCode=ma.AreaCode
+ left join 
+ MRR_mipuylakoah ml
+ on cst.CustCode=ml.CustomerTypeCode</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">30</property>
+                <property
+                  name="AllowImplicitStringConversion"
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns.">true</property>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Source database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">2</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Customers\ADO NET Source.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]"
+                      name="CustCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]"
+                      length="11"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustName]"
+                      name="CustName"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustName]"
+                      length="31"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustName]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustPayCondition]"
+                      name="CustPayCondition"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustPayCondition]"
+                      length="5"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustPayCondition]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      name="AgentCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      length="5"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaCode]"
+                      name="AreaCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AreaCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaName]"
+                      name="AreaName"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaName]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AreaName]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeCode]"
+                      name="CustomerTypeCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeCode]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerTypeCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeDesc]"
+                      name="CustomerTypeDesc"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeDesc]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerTypeDesc]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustCode]"
+                      name="CustCode"
+                      dataType="wstr"
+                      length="11" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustName]"
+                      name="CustName"
+                      dataType="wstr"
+                      length="31" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustPayCondition]"
+                      name="CustPayCondition"
+                      dataType="wstr"
+                      length="5" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentCode]"
+                      name="AgentCode"
+                      dataType="wstr"
+                      length="5" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AreaCode]"
+                      name="AreaCode"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AreaName]"
+                      name="AreaName"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerTypeCode]"
+                      name="CustomerTypeCode"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustomerTypeDesc]"
+                      name="CustomerTypeDesc"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  name="ADO NET Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustCode]"
+                      name="CustCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustCode]"
+                      length="11"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustName]"
+                      name="CustName"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustName]"
+                      length="31"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustPayCondition]"
+                      name="CustPayCondition"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustPayCondition]"
+                      length="5"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentCode]"
+                      name="AgentCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentCode]"
+                      length="5"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AreaCode]"
+                      name="AreaCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AreaCode]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AreaName]"
+                      name="AreaName"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AreaName]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerTypeCode]"
+                      name="CustomerTypeCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerTypeCode]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerTypeDesc]"
+                      name="CustomerTypeDesc"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustomerTypeDesc]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Customers\STG_Customers"
+              name="STG_Customers"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              usesDispositions="true"
+              version="2"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2">
+              <properties>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">"STG_Customers"</property>
+                <property
+                  name="BatchSize"
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify">0</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify">30</property>
+                <property
+                  name="UseBulkInsertWhenPossible"
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify">true</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Customers\STG_Customers.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADO STG_Shivuk Baraam]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input]"
+                  name="ADO NET Destination Input"
+                  hasSideEffects="true"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[CustName]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustName]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustName]"
+                      cachedName="CustName"
+                      cachedDataType="wstr"
+                      cachedLength="31" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[CustPayCondition]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustPayCondition]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustPayCondition]"
+                      cachedName="CustPayCondition"
+                      cachedDataType="wstr"
+                      cachedLength="5" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[AgentCode]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AgentCode]"
+                      cachedName="AgentCode"
+                      cachedDataType="wstr"
+                      cachedLength="5" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[AreaCode]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaCode]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AreaCode]"
+                      cachedName="AreaCode"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[AreaName]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[AreaName]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AreaName]"
+                      cachedName="AreaName"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[CustomerTypeCode]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeCode]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerTypeCode]"
+                      cachedName="CustomerTypeCode"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].Columns[CustomerTypeDesc]"
+                      lineageId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustomerTypeDesc]"
+                      externalMetadataColumnId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerTypeDesc]"
+                      cachedName="CustomerTypeDesc"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustName]"
+                      name="CustName"
+                      dataType="wstr"
+                      length="31" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustPayCondition]"
+                      name="CustPayCondition"
+                      dataType="wstr"
+                      length="5" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AgentCode]"
+                      name="AgentCode"
+                      dataType="wstr"
+                      length="5" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AreaCode]"
+                      name="AreaCode"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[AreaName]"
+                      name="AreaName"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerTypeCode]"
+                      name="CustomerTypeCode"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustomerTypeDesc]"
+                      name="CustomerTypeDesc"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input].ExternalColumns[CustCode]"
+                      name="CustCode"
+                      dataType="i2" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Customers\STG_Customers.Outputs[ADO NET Destination Error Output]"
+                  name="ADO NET Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Customers\STG_Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Customers\STG_Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Customers\STG_Customers.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CF_STG_Customers.Paths[ADO NET Source Output]"
+              name="ADO NET Source Output"
+              startId="Package\CF_STG_Customers\ADO NET Source.Outputs[ADO NET Source Output]"
+              endId="Package\CF_STG_Customers\STG_Customers.Inputs[ADO NET Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CF_STG_Invoice"
+      DTS:ExecutableType="SSIS.Pipeline.3"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) 2007 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CF_STG_Invoice"
+      DTS:DTSID="{EFF38C7E-7EB7-464D-9683-64AFF0675970}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="SSIS.Pipeline.3">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CF_STG_Invoice\ADO NET Source"
+              name="ADO NET Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              usesDispositions="true"
+              version="4"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">30</property>
+                <property
+                  name="AllowImplicitStringConversion"
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns.">true</property>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Source database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">"dbo"."STG_Invoices"</property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">0</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Invoice\ADO NET Source.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[InvoiceNumber]"
+                      name="InvoiceNumber"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[InvoiceNumber]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[InvoiceNumber]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      name="ProdCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]"
+                      name="CustCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      name="AgentCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      dataType="i2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderCode]"
+                      name="OrderCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderCode]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Quantity]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Quantity]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Price]"
+                      name="Price"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Price]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Price]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]"
+                      name="DiscountRow"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountRow]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountGeneral]"
+                      name="DiscountGeneral"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountGeneral]"
+                      dataType="r4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountGeneral]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[InvoiceNumber]"
+                      name="InvoiceNumber"
+                      dataType="i2" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdCode]"
+                      name="ProdCode"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[CustCode]"
+                      name="CustCode"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderDate]"
+                      name="OrderDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[AgentCode]"
+                      name="AgentCode"
+                      dataType="i2" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[OrderCode]"
+                      name="OrderCode"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[Price]"
+                      name="Price"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountRow]"
+                      name="DiscountRow"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[DiscountGeneral]"
+                      name="DiscountGeneral"
+                      dataType="r4" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  name="ADO NET Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[InvoiceNumber]"
+                      name="InvoiceNumber"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[InvoiceNumber]"
+                      dataType="i2" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdCode]"
+                      name="ProdCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdCode]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustCode]"
+                      name="CustCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[CustCode]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      name="OrderDate"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderDate]"
+                      dataType="dbTimeStamp" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentCode]"
+                      name="AgentCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[AgentCode]"
+                      dataType="i2" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderCode]"
+                      name="OrderCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[OrderCode]"
+                      dataType="r4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Quantity]"
+                      name="Quantity"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Quantity]"
+                      dataType="r4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      name="Price"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[Price]"
+                      dataType="r4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountRow]"
+                      name="DiscountRow"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountRow]"
+                      dataType="r4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountGeneral]"
+                      name="DiscountGeneral"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[DiscountGeneral]"
+                      dataType="r4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Invoice\Data Conversion"
+              name="Data Conversion"
+              componentClassID="{62B1106C-7DB8-4EC8-ADD6-4C664DFFC54A}"
+              description="Data Conversion"
+              usesDispositions="true"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Invoice\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\Data Conversion.Inputs[Data Conversion Input].Columns[CustCode]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]"
+                      cachedName="CustCode"
+                      cachedDataType="i4" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Output]"
+                  name="Data Conversion Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Invoice\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Output].Columns[CustCode]"
+                      name="CustCode"
+                      lineageId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Output].Columns[CustCode]"
+                      length="50"
+                      dataType="str"
+                      codePage="1255"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          name="SourceInputColumnLineageID"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          containsID="true">#{Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[CustCode]}</property>
+                        <property
+                          name="FastParse"
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines.">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Error Output]"
+                  name="Data Conversion Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Invoice\Data Conversion.Inputs[Data Conversion Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Invoice\Derived Column"
+              name="Derived Column"
+              componentClassID="{49928E82-9C4E-49F0-AABE-3812B82707EC}"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              usesDispositions="true"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0">
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Invoice\Derived Column.Inputs[Derived Column Input]"
+                  name="Derived Column Input"
+                  description="Input to the Derived Column Transformation">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\Derived Column.Inputs[Derived Column Input].Columns[NewDiscountRow]"
+                      name="NewDiscountRow"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]"
+                      usageType="readWrite"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      cachedName="DiscountRow"
+                      cachedDataType="r4">
+                      <properties>
+                        <property
+                          name="Expression"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          containsID="true">(#{Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]} == 0.01) || (#{Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]} == -0.01) ? 0.00 : (#{Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]})</property>
+                        <property
+                          name="FriendlyExpression"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          containsID="true"
+                          expressionType="Notify">(NewDiscountRow == 0.01) || (NewDiscountRow == -0.01) ? 0.00 : (NewDiscountRow)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Output]"
+                  name="Derived Column Output"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Invoice\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Error Output]"
+                  name="Derived Column Error Output"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Invoice\Derived Column.Inputs[Derived Column Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Invoice\STG_Invoice"
+              name="STG_Invoice"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              usesDispositions="true"
+              version="2"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2">
+              <properties>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">"STG_Invoice"</property>
+                <property
+                  name="BatchSize"
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify">0</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify">30</property>
+                <property
+                  name="UseBulkInsertWhenPossible"
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify">true</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Invoice\STG_Invoice.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADO STG_Shivuk Baraam]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input]"
+                  name="ADO NET Destination Input"
+                  hasSideEffects="true"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[InvoiceNumber]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[InvoiceNumber]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[InvoiceNumber]"
+                      cachedName="InvoiceNumber"
+                      cachedDataType="i2" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[ProdCode]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[ProdCode]"
+                      cachedName="ProdCode"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[OrderDate]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderDate]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      cachedName="OrderDate"
+                      cachedDataType="dbTimeStamp" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[AgentCode]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[AgentCode]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[AgentCode]"
+                      cachedName="AgentCode"
+                      cachedDataType="i2" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[OrderCode]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[OrderCode]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[OrderCode]"
+                      cachedName="OrderCode"
+                      cachedDataType="r4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[Quantity]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Quantity]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      cachedName="Quantity"
+                      cachedDataType="r4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[Price]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[Price]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[Price]"
+                      cachedName="Price"
+                      cachedDataType="r4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[DiscountRow]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountRow]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[NewDiscountRow]"
+                      cachedName="DiscountRow"
+                      cachedDataType="r4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[DiscountGeneral]"
+                      lineageId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output].Columns[DiscountGeneral]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[DiscountGeneral]"
+                      cachedName="DiscountGeneral"
+                      cachedDataType="r4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].Columns[CustCode]"
+                      lineageId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Output].Columns[CustCode]"
+                      externalMetadataColumnId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[CustCode]"
+                      cachedName="CustCode"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedCodepage="1255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[InvoiceNumber]"
+                      name="InvoiceNumber"
+                      dataType="i2" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[ProdCode]"
+                      name="ProdCode"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[OrderDate]"
+                      name="OrderDate"
+                      dataType="dbTimeStamp" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[AgentCode]"
+                      name="AgentCode"
+                      dataType="i2" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[OrderCode]"
+                      name="OrderCode"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[Quantity]"
+                      name="Quantity"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[Price]"
+                      name="Price"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[NewDiscountRow]"
+                      name="NewDiscountRow"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[DiscountGeneral]"
+                      name="DiscountGeneral"
+                      dataType="r4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input].ExternalColumns[CustCode]"
+                      name="CustCode"
+                      dataType="wstr"
+                      length="50" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Invoice\STG_Invoice.Outputs[ADO NET Destination Error Output]"
+                  name="ADO NET Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Invoice\STG_Invoice.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Invoice\STG_Invoice.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Invoice\STG_Invoice.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CF_STG_Invoice.Paths[ADO NET Source Output]"
+              name="ADO NET Source Output"
+              startId="Package\CF_STG_Invoice\ADO NET Source.Outputs[ADO NET Source Output]"
+              endId="Package\CF_STG_Invoice\Derived Column.Inputs[Derived Column Input]" />
+            <path
+              refId="Package\CF_STG_Invoice.Paths[Data Conversion Output]"
+              name="Data Conversion Output"
+              startId="Package\CF_STG_Invoice\Data Conversion.Outputs[Data Conversion Output]"
+              endId="Package\CF_STG_Invoice\STG_Invoice.Inputs[ADO NET Destination Input]" />
+            <path
+              refId="Package\CF_STG_Invoice.Paths[Derived Column Output]"
+              name="Derived Column Output"
+              startId="Package\CF_STG_Invoice\Derived Column.Outputs[Derived Column Output]"
+              endId="Package\CF_STG_Invoice\Data Conversion.Inputs[Data Conversion Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CF_STG_Products"
+      DTS:ExecutableType="{5918251B-2970-45A4-AB5F-01C3C588FE5A}"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CF_STG_Products"
+      DTS:DTSID="{2982F215-FE83-442A-8BC6-1166BA8FE1C6}"
+      DTS:Description="Data Flow Task"
+      DTS:CreationName="{5918251B-2970-45A4-AB5F-01C3C588FE5A}">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CF_STG_Products\ADO NET Destination"
+              name="ADO NET Destination"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination."
+              usesDispositions="true"
+              version="2"
+              contactInfo="Loads data into an ADO.NET-compliant database that uses a database table or view. Load data into a new or existing table. For example, use an ADO.NET provider for ODBC to load data into an ODBC destination.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2">
+              <properties>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Destination database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">"STG_Product"</property>
+                <property
+                  name="BatchSize"
+                  dataType="System.Int32"
+                  description="Specify the number of rows per batch. The default is 0 which uses the same size as SSIS internal buffer. "
+                  expressionType="Notify">0</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out. A value of 0 indicates infinite time-out. "
+                  expressionType="Notify">30</property>
+                <property
+                  name="UseBulkInsertWhenPossible"
+                  dataType="System.Boolean"
+                  description="Specifies whether to use the SqlBulkCopy interface to improve the performance of bulk insert operations. Only certain providers support this interface."
+                  expressionType="Notify">true</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.ADONETDestination, Microsoft.SqlServer.ADONETDest, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Products\ADO NET Destination.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="{99E3AE2C-72F6-40D8-898C-DAE4E4974627}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[ADO STG_Shivuk Baraam]" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  name="ADO NET Destination Input"
+                  hasSideEffects="true"
+                  errorRowDisposition="FailComponent">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProdCode]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProdCode]"
+                      cachedName="ProdCode"
+                      cachedDataType="i4" />
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[ProdName]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdName]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProdName]"
+                      cachedName="ProdName"
+                      cachedDataType="wstr"
+                      cachedLength="42" />
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[category number]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category number]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[category number]"
+                      cachedName="category number"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[category name]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category name]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[category name]"
+                      cachedName="category name"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SupplierGroupCode]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupCode]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SupplierGroupCode]"
+                      cachedName="SupplierGroupCode"
+                      cachedDataType="r8" />
+                    <inputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].Columns[SupplierGroupDesc]"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupDesc]"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SupplierGroupDesc]"
+                      cachedName="SupplierGroupDesc"
+                      cachedDataType="wstr"
+                      cachedLength="255" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProdCode]"
+                      name="ProdCode"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[ProdName]"
+                      name="ProdName"
+                      dataType="wstr"
+                      length="42" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[category number]"
+                      name="category number"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[category name]"
+                      name="category name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SupplierGroupCode]"
+                      name="SupplierGroupCode"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input].ExternalColumns[SupplierGroupDesc]"
+                      name="SupplierGroupDesc"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Products\ADO NET Destination.Outputs[ADO NET Destination Error Output]"
+                  name="ADO NET Destination Error Output"
+                  exclusionGroup="1"
+                  synchronousInputId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input]"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Products\ADO NET Destination.Outputs[ADO NET Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CF_STG_Products\ADO NET Source"
+              name="ADO NET Source"
+              componentClassID="{874F7595-FB5F-40FF-96AF-FBFF8250E3EF}"
+              description="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server."
+              usesDispositions="true"
+              version="4"
+              contactInfo="Consumes data from SQL Server, OLE DB, ODBC, or Oracle, using the corresponding .NET Framework data provider. Use a Transact-SQL statement to define the result set. For example, extract data from SQL Server with the .NET Framework data provider for SQL Server.;Microsoft Corporation; Microsoft SQL Server; © Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4">
+              <properties>
+                <property
+                  name="SqlCommand"
+                  dataType="System.String"
+                  description="Specifies the SQL statement used by the component to extract data."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify">SELECT p.ProdCode,p.ProdName,c.[category number],c.[category name],m.SupplierGroupCode,m.SupplierGroupDesc
+ FROM   dbo.MRR_Products  p
+ LEFT JOIN  dbo.MRR_Categories  c
+ ON p.CategoryCode=c.[category number]
+ left join 
+ dbo.MRR_mipuysupp m 
+ on p.SuplierCode=m.SupplierGroupCode</property>
+                <property
+                  name="CommandTimeout"
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out.">30</property>
+                <property
+                  name="AllowImplicitStringConversion"
+                  dataType="System.Boolean"
+                  description="Indicates whether to allow non-string external columns to be implicitly converted to strings at the output columns.">true</property>
+                <property
+                  name="TableOrViewName"
+                  dataType="System.String"
+                  description="The Source database table name."
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version= 11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"
+                  expressionType="Notify"></property>
+                <property
+                  name="AccessMode"
+                  dataType="System.Int32"
+                  description="Specify the mode to retrieve external column information"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter+EnumToStringConverter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91">2</property>
+                <property
+                  name="UserComponentTypeName"
+                  dataType="System.String">Microsoft.SqlServer.Dts.Pipeline.DataReaderSourceAdapter, Microsoft.SqlServer.ADONETSrc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CF_STG_Products\ADO NET Source.Connections[IDbConnection]"
+                  name="IDbConnection"
+                  description="Managed connection manager"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.MRR_Shivuk Baraam]" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output]"
+                  name="ADO NET Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      name="ProdCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdCode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdName]"
+                      name="ProdName"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[ProdName]"
+                      length="42"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdName]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category number]"
+                      name="category number"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category number]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[category number]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category name]"
+                      name="category name"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[category name]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[category name]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupCode]"
+                      name="SupplierGroupCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupCode]"
+                      dataType="r8"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SupplierGroupCode]" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupDesc]"
+                      name="SupplierGroupDesc"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].Columns[SupplierGroupDesc]"
+                      length="255"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      truncationRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SupplierGroupDesc]" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdCode]"
+                      name="ProdCode"
+                      dataType="i4" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[ProdName]"
+                      name="ProdName"
+                      dataType="wstr"
+                      length="42" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[category number]"
+                      name="category number"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[category name]"
+                      name="category name"
+                      dataType="wstr"
+                      length="255" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SupplierGroupCode]"
+                      name="SupplierGroupCode"
+                      dataType="r8" />
+                    <externalMetadataColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output].ExternalColumns[SupplierGroupDesc]"
+                      name="SupplierGroupDesc"
+                      dataType="wstr"
+                      length="255" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output]"
+                  name="ADO NET Source Error Output"
+                  isErrorOut="true">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdCode]"
+                      name="ProdCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdCode]"
+                      dataType="i4" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdName]"
+                      name="ProdName"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ProdName]"
+                      length="42"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[category number]"
+                      name="category number"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[category number]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[category name]"
+                      name="category name"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[category name]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SupplierGroupCode]"
+                      name="SupplierGroupCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SupplierGroupCode]"
+                      dataType="r8" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SupplierGroupDesc]"
+                      name="SupplierGroupDesc"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[SupplierGroupDesc]"
+                      length="255"
+                      dataType="wstr" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      lineageId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CF_STG_Products.Paths[ADO NET Source Output]"
+              name="ADO NET Source Output"
+              startId="Package\CF_STG_Products\ADO NET Source.Outputs[ADO NET Source Output]"
+              endId="Package\CF_STG_Products\ADO NET Destination.Inputs[ADO NET Destination Input]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="sql11">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="170,42"
+          Id="Package\CF_STG_Agents"
+          TopLeft="19,173" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\CF_STG_Customers"
+          TopLeft="11,87" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\CF_STG_Invoice"
+          TopLeft="355,31" />
+        <NodeLayout
+          Size="162,42"
+          Id="Package\CF_STG_Products"
+          TopLeft="7.5,5.5" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CF_STG_Agents">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\CF_STG_Agents\ADO NET Source"
+          TopLeft="279,53" />
+        <NodeLayout
+          Size="155,42"
+          Id="Package\CF_STG_Agents\Data Conversion"
+          TopLeft="347,136" />
+        <EdgeLayout
+          Id="Package\CF_STG_Agents.Paths[ADO NET Source Output]"
+          TopLeft="357.5,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="67,41"
+              Start="0,0"
+              End="67,33.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5"
+                    Point2="0,20.5"
+                    Point3="4,20.5" />
+                  <mssgle:LineSegment
+                    End="63,20.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="63,20.5"
+                    Point2="67,20.5"
+                    Point3="67,24.5" />
+                  <mssgle:LineSegment
+                    End="67,33.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174,42"
+          Id="Package\CF_STG_Agents\STG_Agents"
+          TopLeft="557,156" />
+        <EdgeLayout
+          Id="Package\CF_STG_Agents.Paths[Data Conversion Output]"
+          TopLeft="502,157">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="55,20"
+              Start="0,0"
+              End="47.5,20">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="23.5,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="23.5,0"
+                    Point2="27.5,0"
+                    Point3="27.5,4" />
+                  <mssgle:LineSegment
+                    End="27.5,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="27.5,16"
+                    Point2="27.5,20"
+                    Point3="31.5,20" />
+                  <mssgle:LineSegment
+                    End="47.5,20" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Agents\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CF_STG_Customers">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\CF_STG_Customers\ADO NET Source"
+          TopLeft="5.5,5.5" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\CF_STG_Customers\STG_Customers"
+          TopLeft="384,127" />
+        <EdgeLayout
+          Id="Package\CF_STG_Customers.Paths[ADO NET Source Output]"
+          TopLeft="84,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="376.5,79.5"
+              Start="0,0"
+              End="376.5,72">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.75"
+                    Point2="0,39.75"
+                    Point3="4,39.75" />
+                  <mssgle:LineSegment
+                    End="372.5,39.75" />
+                  <mssgle:CubicBezierSegment
+                    Point1="372.5,39.75"
+                    Point2="376.5,39.75"
+                    Point3="376.5,43.75" />
+                  <mssgle:LineSegment
+                    End="376.5,72" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Customers\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CF_STG_Invoice">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="157,43"
+          Id="Package\CF_STG_Invoice\ADO NET Source"
+          TopLeft="99,10" />
+        <NodeLayout
+          Size="153,42"
+          Id="Package\CF_STG_Invoice\Derived Column"
+          TopLeft="93,110" />
+        <NodeLayout
+          Size="137,42"
+          Id="Package\CF_STG_Invoice\STG_Invoice"
+          TopLeft="486,165" />
+        <EdgeLayout
+          Id="Package\CF_STG_Invoice.Paths[ADO NET Source Output]"
+          TopLeft="177.5,53">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8,57"
+              Start="0,0"
+              End="-8,49.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,24.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,24.5"
+                    Point2="0,28.5"
+                    Point3="-4,28.5" />
+                  <mssgle:LineSegment
+                    End="-4,28.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4,28.5"
+                    Point2="-8,28.5"
+                    Point3="-8,32.5" />
+                  <mssgle:LineSegment
+                    End="-8,49.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="155,42"
+          Id="Package\CF_STG_Invoice\Data Conversion"
+          TopLeft="131,192" />
+        <EdgeLayout
+          Id="Package\CF_STG_Invoice.Paths[Derived Column Output]"
+          TopLeft="169.5,152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="39,40"
+              Start="0,0"
+              End="39,32.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16"
+                    Point2="0,20"
+                    Point3="4,20" />
+                  <mssgle:LineSegment
+                    End="35,20" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35,20"
+                    Point2="39,20"
+                    Point3="39,24" />
+                  <mssgle:LineSegment
+                    End="39,32.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\CF_STG_Invoice.Paths[Data Conversion Output]"
+          TopLeft="286,213">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="200,-27"
+              Start="0,0"
+              End="192.5,-27">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="96,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="96,0"
+                    Point2="100,0"
+                    Point3="100,-4" />
+                  <mssgle:LineSegment
+                    End="100,-23" />
+                  <mssgle:CubicBezierSegment
+                    Point1="100,-23"
+                    Point2="100,-27"
+                    Point3="104,-27" />
+                  <mssgle:LineSegment
+                    End="192.5,-27" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Invoice\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Invoice\STG_Invoice">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CF_STG_Products">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="157,42"
+          Id="Package\CF_STG_Products\ADO NET Source"
+          TopLeft="283.5,56.5" />
+        <NodeLayout
+          Size="178,42"
+          Id="Package\CF_STG_Products\ADO NET Destination"
+          TopLeft="35.5,35.5" />
+        <EdgeLayout
+          Id="Package\CF_STG_Products.Paths[ADO NET Source Output]"
+          TopLeft="283.5,77.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-70,-21"
+              Start="0,0"
+              End="-62.5,-21">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-31,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-31,0"
+                    Point2="-35,0"
+                    Point3="-35,-4" />
+                  <mssgle:LineSegment
+                    End="-35,-17" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-35,-17"
+                    Point2="-35,-21"
+                    Point3="-39,-21" />
+                  <mssgle:LineSegment
+                    End="-62.5,-21" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Products\ADO NET Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Products\ADO NET Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Customers\STG_Customers">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\CF_STG_Agents\STG_Agents">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
